@@ -76,8 +76,17 @@ function getName(name) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name) {
+  const smarty = {
+    name: name,
+    sum (num1, num2){
+      return num1 + num2;
+    },
+    speak (){
+      return "Hello, my name is " + name;
+    }
+  }
+  return smarty;
 }
 
 /**
@@ -92,8 +101,8 @@ function makeSmartPerson(/* code here */) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(array) {
-  return 'This is a ' + array[1].car_make + ' ' + array[1].car_model;
+function getCarInfoByIndex(array,num) {
+  return 'This is a ' + array[num].car_make + ' ' + array[num].car_model;
 }
 
 /**
@@ -180,10 +189,9 @@ function getModelYears(array) {
 function getOlderCars(array, num){
   let oldercars = []
     for(var i = 0; i < array.length; i++){
-      if(array[i].car_year <=num){
+      if(array[i].car_year <= num){
         oldercars.push(array[i].car_year);
       }
-
   }
   return oldercars;
 }
